@@ -57,7 +57,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="PingDisplayPlugin.cs" />
+    <Compile Include="ValheimPerformanceDisplay.cs" />
   </ItemGroup>
 
   <!-- Auto-copy DLL after build -->
