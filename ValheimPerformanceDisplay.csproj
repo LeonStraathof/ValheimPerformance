@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Nullable>disable</Nullable>
+
+    <AssemblyName>ValheimPingDisplay</AssemblyName>
+    <RootNamespace>ValheimPingDisplay</RootNamespace>
+
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+
+    <OutputType>Library</OutputType>
+
+    <!-- Change this to your Valheim install -->
+    <ValheimDir>C:\Steam\steamapps\common\Valheim</ValheimDir>
+
+    <!-- Optional auto-copy -->
+    <BepInExPluginDir>$(ValheimDir)\BepInEx\plugins</BepInExPluginDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- BepInEx -->
+    <Reference Include="BepInEx">
+      <HintPath>$(ValheimDir)\BepInEx\core\BepInEx.dll</HintPath>
+    </Reference>
+
+    <!-- Harmony -->
+    <Reference Include="0Harmony">
+      <HintPath>$(ValheimDir)\BepInEx\core\0Harmony.dll</HintPath>
+    </Reference>
+
+    <!-- Valheim -->
+    <Reference Include="assembly_valheim">
+      <HintPath>$(ValheimDir)\valheim_Data\Managed\assembly_valheim.dll</HintPath>
+    </Reference>
+
+    <!-- Unity -->
+    <Reference Include="UnityEngine">
+      <HintPath>$(ValheimDir)\valheim_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(ValheimDir)\valheim_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+
+    <Reference Include="UnityEngine.UI">
+      <HintPath>$(ValheimDir)\valheim_Data\Managed\UnityEngine.UI.dll</HintPath>
+    </Reference>
+
+    <!-- TextMeshPro -->
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(ValheimDir)\valheim_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="PingDisplayPlugin.cs" />
+  </ItemGroup>
+
+  <!-- Auto-copy DLL after build -->
+  <Target Name="CopyToBepInEx" AfterTargets="Build">
+    <Copy
+      SourceFiles="$(OutputPath)\$(AssemblyName).dll"
+      DestinationFolder="$(BepInExPluginDir)"
+      SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>
