@@ -9,7 +9,7 @@ namespace ValheimPerformanceDisplay
     [BepInPlugin(ModGUID, ModName, ModVersion)]
     public class PerformanceDisplayPlugin : BaseUnityPlugin
     {
-        public const string ModGUID = "com.example.valheimperformancedisplay";
+        public const string ModGUID = "nl.playhere.valheimperformancedisplay";
         public const string ModName = "Valheim Performance Display";
         public const string ModVersion = "1.0.0";
 
