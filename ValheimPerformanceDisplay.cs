@@ -4,10 +4,10 @@ using HarmonyLib;
 using TMPro;
 using System.Collections.Generic;
 
-namespace ValheimPingDisplay
+namespace ValheimPerformanceDisplay
 {
     [BepInPlugin(ModGUID, ModName, ModVersion)]
-    public class PingDisplayPlugin : BaseUnityPlugin
+    public class PerformanceDisplayPlugin : BaseUnityPlugin
     {
         public const string ModGUID = "com.example.valheimperformancedisplay";
         public const string ModName = "Valheim Performance Display";
